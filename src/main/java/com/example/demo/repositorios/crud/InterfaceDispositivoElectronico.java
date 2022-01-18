@@ -1,7 +1,6 @@
 
 package com.example.demo.repositorios.crud;
 
-import com.example.demo.entidades.ConexionDeRed;
 import com.example.demo.entidades.DispositivoElectrónico;
 import java.util.List;
 import java.util.Optional;
@@ -19,4 +18,10 @@ public interface InterfaceDispositivoElectronico extends CrudRepository<Disposit
      */
     Optional<DispositivoElectrónico> findByMac(String mac);
     
+    /**
+     * Buscar por llave foranea
+     * @param id
+     * @return 
+     */
+    List<DispositivoElectrónico> findByConexionActual_Tipo(Integer id);
 }

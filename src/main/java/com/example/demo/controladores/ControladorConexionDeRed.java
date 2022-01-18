@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,8 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Oscar Gomez
  */
 @RestController
-@RequestMapping("api/conexiondered")
-//@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@RequestMapping("/conexiondered")
 @CrossOrigin(origins = "*")
 public class ControladorConexionDeRed {
     /**

@@ -22,7 +22,6 @@ public class ServicioDispositivoElectronico {
 
     /**
      * Obtener todos los registros
-     *
      * @return Una lista con todos los registros
      */
     public List<DispositivoElectrónico> getAll() {
@@ -31,7 +30,6 @@ public class ServicioDispositivoElectronico {
 
     /**
      * Obtener un registro por mac
-     *
      * @param mac
      * @return Un registro
      */
@@ -41,7 +39,6 @@ public class ServicioDispositivoElectronico {
 
     /**
      * Registrar un dispositivo
-     *
      * @param electrónico
      * @return El registro guardado
      */
@@ -52,11 +49,10 @@ public class ServicioDispositivoElectronico {
             return Optional.empty();
         } else {
             Optional<DispositivoElectrónico> buscarD = repositorio.getDispositivo(electrónico.getMac());
-            
             if (buscarD.isEmpty()) {
                 int maximoDeRegistros = 0;
-                List<DispositivoElectrónico> buscarIdConexion = repositorio.getAll();
-                
+                List<DispositivoElectrónico> buscarIdConexion = repositorio.filtroConexion(electrónico.getConexionActual().getTipo());
+                //System.out.println(buscarIdConexion.toString());
                 for (DispositivoElectrónico deo : buscarIdConexion) {
                     if (deo.getConexionActual().getTipo().equals(electrónico.getConexionActual().getTipo())) {
                             maximoDeRegistros++;
@@ -95,13 +91,12 @@ public class ServicioDispositivoElectronico {
                 }
                 if (electrónico.getConexionActual() != null) {
                     int maximoDeRegistros = 0;
-                    List<DispositivoElectrónico> buscarIdConexion = repositorio.getAll();
+                    List<DispositivoElectrónico> buscarIdConexion = repositorio.filtroConexion(electrónico.getConexionActual().getTipo());
                     for (DispositivoElectrónico deo : buscarIdConexion) {
                         if (deo.getConexionActual().getTipo().equals(electrónico.getConexionActual().getTipo())) {
                             maximoDeRegistros++;
                         }
                     }
-                    System.out.println(maximoDeRegistros);
                     if (maximoDeRegistros < 3) {
                         obtener.get().setConexionActual(electrónico.getConexionActual());
                     }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.example.demo.repositorios;
 
 import com.example.demo.entidades.DispositivoElectrónico;
@@ -53,5 +49,12 @@ public class RepositorioDispositivoElectronico {
     public void delete(String mac) {
         crud.deleteById(mac);
     }
-   
+    /**
+     * Buscar por llave foranea
+     * @param id
+     * @return 
+     */
+    public List<DispositivoElectrónico> filtroConexion(Integer id){
+        return crud.findByConexionActual_Tipo(id);
+    }
 }
