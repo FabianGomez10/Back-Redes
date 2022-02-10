@@ -130,4 +130,12 @@ public class ServicioDispositivoElectronico {
         }
         return false;
     }
+    /**
+     * 
+     * @param id
+     * @return 
+     */
+    public List<DispositivoElectrónico> filtro(Integer id){
+        return repositorio.filtroConexion(id);
+    }
 }

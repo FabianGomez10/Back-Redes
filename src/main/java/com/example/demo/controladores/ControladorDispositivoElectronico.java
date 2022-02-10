@@ -49,6 +49,15 @@ public class ControladorDispositivoElectronico {
         return servicio.getDispositivo(mac);
     }
     /**
+     * Obtener registros por llave foranea
+     * @param id
+     * @return 
+     */
+    @GetMapping("/filter/{id}")
+    public List<DispositivoElectrónico> filtro(@PathVariable ("id") Integer id){
+        return servicio.filtro(id);
+    }
+    /**
      * Registrar un dispositivo
      * @param electrónico
      * @return El registro guardado
